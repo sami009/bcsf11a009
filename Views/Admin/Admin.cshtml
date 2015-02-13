@@ -1,0 +1,45 @@
+﻿
+@model Flower.Models.product
+ @Html.ActionLink("Upload New","Admin","Admin")
+<h2>Admin Pannel</h2>
+
+        
+   
+
+
+@using (Html.BeginForm("Admin", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+     <div class="form-group">
+        @Html.Label("Name", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(Model => Model.productName, new { @class = "form-control" })
+        </div>
+    </div>
+    
+    
+    <div class="form-group">
+        @Html.Label("Price", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(Model => Model.productCost, new { @class = "form-control" })
+        </div>
+    </div>
+   
+             <div class="form-group">
+        @Html.Label("Upload Product", new { @class = "col-md-2col-xs-2 col-sm-2 control-label" })
+        <div class="col-md-3 col-xs-3 col-sm-3">
+     
+
+            <input type="file" name="uploadFile"/>
+        </div>
+                 </div>
+            <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Upload" />
+        </div>
+    </div>
+                 
+
+
+}
+
+   

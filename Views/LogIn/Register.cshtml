@@ -1,0 +1,68 @@
+﻿
+@model  Flower.Models.customer
+@{
+    Layout = null;
+}
+ <img alt="" src="~/images/Capture2.PNG" align="top" />
+ <link href="~/Content/bootstrap.css" rel="stylesheet" />
+<form action="/SignUp/SignUp" method="post">
+
+
+ @section s1{
+
+<script>
+    function func() {
+        var mVal = $('#chkMail').val();
+        $.getJSON("/SignUpController/validateEmail?un=" + mVal, function (data) {
+            if (data) {
+                $('#pSuccess').show();
+            }
+            else {
+
+                $('#pFail').show();
+            }
+        }
+        )
+    }
+</script>
+    }
+
+  
+<form action="/SignUp/SignUp" method="post">
+
+    @Html.ValidationSummary()
+    <!--<form class="form-signin"> -->
+    <div class="col-md-12">
+        <h2 class="form-signUp-heading">Sign Up</h2>
+
+        @Html.TextBoxFor(Model => Model.customerName, new { type = "name", placeholder = "Name"})
+        <br />
+        <br />
+      
+        @Html.TextBoxFor(Model => Model.email, new {id="chkMail", type = "email", placeholder = "example@ar.com"})
+        <input type="button" id="chkBtn" value="Check Available" onclick="func()">
+       
+        <p id="pSuccess" hidden   > UserName available</p>
+        
+        <p  id="pFail"  hidden >Username not available</p>
+
+        <br />
+        <br />
+        @Html.TextBoxFor(Model => Model.address, new { type = "address", placeholder = "Address"})
+        <br />
+        <br />
+        @Html.TextBoxFor(Model => Model.userName, new { type = "name", placeholder = "User Name"})
+        <br />
+        <br />
+        @Html.TextBoxFor(Model => Model.passWord, new { type = "password", placeholder = "Password"})
+        <br />
+        <br />
+        @Html.TextBoxFor(Model => Model.cellNo, new { type = "contact", placeholder = "contact No"})
+        <br />
+        <br />
+
+        <div class="col-md-6">
+            <button class="btn btn-lg btn-danger" type="submit">Sign Up</button>
+        </div>
+    </div>
+    <br />

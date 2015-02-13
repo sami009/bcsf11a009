@@ -1,0 +1,44 @@
+﻿        @{
+    ViewBag.Title = "LogIn";
+}
+@model Flower.Models.customer
+
+  <div class="col-md-12">
+
+        <div class="col-md-2"></div>
+<div>
+<form action="/LogIn/LogIn" method="post">
+       <!--<form class="form-signin"> -->
+  
+     
+        <h2 class="form-signin-heading">Please sign in</h2>
+     <div class="form-group">
+         <div class="row"> 
+                            @Html.LabelFor(m => m.userName, new { @class = "col-md-2 col-xs-2 col-sm-2 control-label" })
+                         
+                               <div class="col-md-4"> 
+                                          @Html.TextBoxFor(m => m.userName, new { @class = "form-control" })</div>
+                                @*@Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })*@
+                            </div>
+       <br />
+       <div class="form-group row">
+                            @Html.LabelFor(m => m.passWord, new { @class = "col-md-2 col-xs-2 col-sm-2 control-label" })
+                            <div class="col-md-4">
+                                @Html.PasswordFor(m => m.passWord, new { @class = "form-control" })
+                               
+                            </div>
+                        </div>
+       
+    <br /> <div class="col-md-4"></div>
+        <button class="btn btn-lg btn-danger"" type="submit">Sign in</button>
+        <br />
+        
+        <p>
+            @Html.ActionLink("Register","SignUp","SignUp") 
+              if you don't have an account
+        </p>
+       
+        </div>
+        </div>
+        </div>
+    </form>
